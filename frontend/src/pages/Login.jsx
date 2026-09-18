@@ -1,7 +1,7 @@
 // frontend/src/pages/Login.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api/axiosConfig';
+import api from '../api/axiosConfig.js';
 
 const Login = () => {
     const [email, setEmail] = useState('');

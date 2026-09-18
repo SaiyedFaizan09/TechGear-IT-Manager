@@ -13,8 +13,9 @@ router.post('/register', async (req, res) => {
         await user.save();
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-        res.status(500).json({ error: 'Registration failed' });
-    }
+    console.error("🔥 REGISTRATION ERROR:", error); // <-- Add this log
+    res.status(500).json({ error: 'Registration failed' });
+}
 });
 
 // LOGIN ROUTE
@@ -30,8 +31,9 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ token, role: user.role });
     } catch (error) {
-        res.status(500).json({ error: 'Login failed' });
-    }
+    console.error("🔥 LOGIN ERROR:", error); // <-- Add this log
+    res.status(500).json({ error: 'Login failed' });
+}
 });
 
 module.exports = router;
