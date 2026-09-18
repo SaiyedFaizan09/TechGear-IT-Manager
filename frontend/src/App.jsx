@@ -1,10 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import Login from './pages/Login'; 
-import AdminDashboard from './pages/AdminDashboard'; // 1. Import the new dashboard
-
-// Keep Employee placeholder for now
-const EmployeeDashboard = () => <div className="page-container">Employee Portal (Developer A)</div>;
+import AdminDashboard from './pages/AdminDashboard'; 
+import EmployeeDashboard from './pages/EmployeeDashboard'; // 1. Import Employee Dashboard
 
 function App() {
   return (
@@ -17,9 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/employee" element={<EmployeeDashboard />} />
           
-          {/* 2. Replace the Admin placeholder */}
+          {/* 2. Replace the Employee placeholder */}
+          <Route path="/employee" element={<EmployeeDashboard />} />
           <Route path="/admin" element={<AdminDashboard />} /> 
         </Routes>
       </div>
