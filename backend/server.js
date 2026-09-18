@@ -6,7 +6,10 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors()); // 2. Activate CORS (must be before routes!)
+// Replace app.use(cors()); with:
+app.use(cors({
+    origin: '*' // In a real app, you would put your Vercel domain here
+}));
 app.use(express.json());
 
 // Connect to Database
